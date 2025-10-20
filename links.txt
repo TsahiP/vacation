@@ -1,0 +1,5 @@
+node version 22.12.0
+
+Creating a Vue Application: 
+https://vuejs.org/guide/quick-start.html
+

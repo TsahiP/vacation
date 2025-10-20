@@ -1,0 +1,14 @@
+# Create a new migration file
+npx sequelize-cli migration:generate --name migration-name
+
+# Undo the last migration
+npx sequelize-cli db:migrate:undo
+
+# Undo all migrations
+npx sequelize-cli db:migrate:undo:all
+
+# Undo specific migration
+npx sequelize-cli db:migrate:undo --name migration-file-name.js
+
+# Check migration status
+npx sequelize-cli db:migrate:status
