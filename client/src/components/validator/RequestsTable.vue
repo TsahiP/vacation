@@ -115,25 +115,11 @@
 </template>
 
 <script setup lang="ts">
+import type { VacationRequest } from '@/types/types'
 import ViewBtn from '../base/ViewBtn.vue'
-import { useTableStyles } from '@/composables/useTableStyles'
-
-const styles = useTableStyles()
-
-interface Request {
-  id: number
-  startDate: string
-  endDate: string
-  status: string
-  reason?: string
-  created_at: string
-  User?: {
-    name: string
-  }
-}
 
 defineProps<{
-  requests: Request[]
+  requests: VacationRequest[]
 }>()
 
 defineEmits<{
