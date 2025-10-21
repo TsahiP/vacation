@@ -116,8 +116,10 @@
 
 <script setup lang="ts">
 import type { VacationRequest } from '@/types/types'
+import { useTableStyles } from '@/composables/useTableStyles'
 import ViewBtn from '../base/ViewBtn.vue'
 
+const styles = useTableStyles()
 defineProps<{
   requests: VacationRequest[]
 }>()
