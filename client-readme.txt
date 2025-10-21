@@ -5,7 +5,7 @@ A Vue.js application for managing employee vacation requests with role-based acc
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js v20.19.0 or v22.12.0+
+-----node version 22.12.0-----
 
 ### Installation & Running
 

@@ -5,8 +5,22 @@ Node.js Express backend API with PostgreSQL and JWT authentication.
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js v20.19.0 or v22.12.0+
+-----node version 22.12.0-----
 - Docker (for PostgreSQL)
+
+## 🔧 Configuration
+
+Environment variables in [`.env`](.env):
+```env
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_NAME=vacation_db
+DB_HOST=localhost
+DB_PORT=5432
+PORT=3000
+JWT_SECRET=wordpass
+NODE_ENV=development
+```
 
 ### Installation & Running
 
@@ -77,19 +91,7 @@ PUT    /api/vacation/:id    - Update status (Validators only)
 - Bcrypt (Password hashing)
 - Docker
 
-## 🔧 Configuration
 
-Environment variables in [`.env`](.env):
-```env
-DB_USERNAME=postgres
-DB_PASSWORD=postgres
-DB_NAME=vacation_db
-DB_HOST=localhost
-DB_PORT=5432
-PORT=3000
-JWT_SECRET=wordpass
-NODE_ENV=development
-```
 
 ## 🐛 Troubleshooting
 
