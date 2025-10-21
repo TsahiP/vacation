@@ -7,7 +7,7 @@
       <div class="text-center">
         <div
           class="mx-auto h-16 w-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg mb-4">
-        >
+        
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-8 w-8 text-white"
