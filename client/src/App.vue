@@ -1,5 +1,5 @@
 <template>
-  <main class="px-8 max-w-screen-xl mx-auto">
+  <main class=" max-w-screen-xl mx-auto">
   <Header/>
   </main>
   <RouterView />

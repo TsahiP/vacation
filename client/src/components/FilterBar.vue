@@ -1,6 +1,6 @@
 <template>
   <!-- Filters Bar -->
-  <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex justify-between">
+  <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex justify-between md:flex-row flex-col gap-4 md:gap-0 items-center">
     
     <RouterLink
       v-if="role === 'requester'"
