@@ -106,7 +106,11 @@
             <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Reason</p>
             <p class="text-gray-900 wrap-break-word">{{ vacationStore.currentRequest.reason || 'No reason provided' }}</p>
           </div>
-
+          <!-- destination -->
+          <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Destination</p>
+            <p class="text-gray-900 wrap-break-word">{{ vacationStore.currentRequest.destination || 'No destination provided' }}</p>
+          </div>
           <!-- Rejection Comments (if rejected) -->
           <div v-if="vacationStore.currentRequest.status === 'Rejected'" class="bg-red-50 rounded-lg p-4 border border-red-200">
             <div class="flex items-start">

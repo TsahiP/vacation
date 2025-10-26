@@ -8,6 +8,7 @@
             <th :class="styles.th">End Date</th>
             <th :class="styles.th">Status</th>
             <th :class="styles.th">Reason</th>
+            <th :class="styles.th">Destination</th>
             <th :class="styles.th">Comments</th>
             <th :class="styles.th">Created</th>
             <th :class="styles.th">Actions</th>
@@ -39,6 +40,9 @@
             </td>
             <td class="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">
               {{ request.reason || 'N/A' }}
+            </td>
+            <td  class="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">
+              {{ request.destination || 'N/A' }}
             </td>
             <td class="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">
               {{ request.comments || 'N/A' }}
@@ -83,21 +87,12 @@
 
 <script setup lang="ts">
 import { useTableStyles } from '@/composables/useTableStyles'
+import type { RequesterView } from '@/types/types';
 
 const styles = useTableStyles()
 
-interface Request {
-  id: number
-  startDate: string
-  endDate: string
-  status: string
-  reason?: string
-  comments?: string
-  created_at: string
-}
-
 defineProps<{
-  requests: Request[]
+  requests: RequesterView[]
 }>()
 
 const formatDate = (dateString: string) => {

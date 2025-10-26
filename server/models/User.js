@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('Requester', 'Validator'),
       allowNull: false,
       defaultValue: 'Requester'
-    }
+    },
   }, {
     timestamps: true
   });

@@ -3,8 +3,9 @@ const { Op } = require('sequelize');
 
 // Create a new vacation request
 exports.createRequest = async (req, res) => {
+  console.log("🚀 ~ req:", req.body)
   try {
-    const { startDate, endDate, reason } = req.body;
+    const { startDate, endDate, reason,destination } = req.body;
     const userId = req.user.id;
     
     // Validate dates
@@ -20,6 +21,7 @@ exports.createRequest = async (req, res) => {
       startDate,
       endDate,
       reason,
+      destination,
       status: 'Pending'
     });
     
@@ -64,7 +66,7 @@ exports.getRequests = async (req, res) => {
     }
     
     const requests = await VacationRequest.findAll(queryOptions);
-    
+    console.log("-----------requests: ", requests);
     res.json(requests);
   } catch (error) {
     console.error(error);

@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
     comments: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    destination:{
+      type: DataTypes.TEXT,
+      allowNull:true
     }
   }, {
     timestamps: true,

@@ -50,7 +50,10 @@
             <span class="text-sm font-medium text-gray-600">Reason:</span>
             <p class="text-sm text-gray-700 mt-1">{{ request.reason }}</p>
           </div>
-
+          <div v-if="request.destination" class="pt-2">
+            <span class="text-sm font-medium text-gray-600">Destination:</span>
+            <p class="text-sm text-gray-700 mt-1">{{ request.destination }}</p>
+          </div>
           <div v-if="request.comments" class="pt-2">
             <span class="text-sm font-medium text-gray-600">Validator Comments:</span>
             <p class="text-sm text-gray-700 mt-1 italic">{{ request.comments }}</p>
@@ -92,18 +95,10 @@
 </template>
 
 <script setup lang="ts">
-interface Request {
-  id: number
-  startDate: string
-  endDate: string
-  status: string
-  reason?: string
-  comments?: string
-  created_at: string
-}
+import type { RequesterView } from '@/types/types';
 
 defineProps<{
-  requests: Request[]
+  requests: RequesterView[]
 }>()
 
 const formatDate = (dateString: string) => {
