@@ -70,6 +70,21 @@
               ></textarea>
             </div>
           </div>
+                    <!-- destination -->
+          <div>
+            <label for="destination" class="block text-sm font-semibold text-gray-700 mb-2">
+              Destination (Optional)
+            </label>
+            <div class="relative">
+              <input 
+                id="destination" 
+                v-model="form.destination" 
+                maxlength="50"
+                placeholder="optional destination..."
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-400 resize-none"
+              ></input>
+            </div>
+          </div>
 
           <!-- Error Message -->
           <div v-if="error" class="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
@@ -133,7 +148,8 @@ const currentDate = new Date().toISOString().split('T')[0]
 const form = ref<VacationRequestForm>({
   startDate: '',
   endDate: '',
-  reason: ''
+  reason: '',
+  destination: '',
 })
 
 const isFormValid = computed(() => {

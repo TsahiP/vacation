@@ -12,3 +12,6 @@ npx sequelize-cli db:migrate:undo --name migration-file-name.js
 
 # Check migration status
 npx sequelize-cli db:migrate:status
+
+# Apply migrations
+npx sequelize-cli db:migrate

@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { authService } from '../services/auth-service'
+
 // use requiresAuth and requiresGuest meta fields to manage access to routes
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -54,7 +56,7 @@ const router = createRouter({
   ]
 })
 
-// Navigation guards
+// Navigation guard that executes before any navigation.
 router.beforeEach((to, from, next) => {
   const isAuthenticated = authService.isAuthenticated()
   const currentUser = authService.getCurrentUser()
