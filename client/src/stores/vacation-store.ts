@@ -14,7 +14,6 @@ export const useVacationStore = defineStore('vacation', () => {
     error.value = null
     try {
       vacationRequests.value = await vacationService.getRequests(status)
-      console.log("🚀 ~ fetchRequests ~ vacationRequests:", vacationRequests)
     } catch (err: any) {
       error.value = err.response?.data?.message || 'Failed to fetch vacation requests'
     } finally {

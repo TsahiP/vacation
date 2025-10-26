@@ -59,6 +59,11 @@
             <span class="text-sm font-medium text-gray-600">Reason:</span>
             <p class="text-sm text-gray-700 mt-1">{{ request.reason }}</p>
           </div>
+          
+          <div v-if="request.reason" class="pt-2">
+            <span class="text-sm font-medium text-gray-600">Destination:</span>
+            <p class="text-sm text-gray-700 mt-1">{{ request.destination }}</p>
+          </div>
         </div>
 
         <!-- Actions -->
@@ -114,6 +119,7 @@
 </template>
 
 <script setup lang="ts">
+import type { VacationRequest } from '@/types/types'
 import ViewBtn from '../base/ViewBtn.vue'
 
 interface Request {
@@ -129,7 +135,7 @@ interface Request {
 }
 
 defineProps<{
-  requests: Request[]
+  requests: VacationRequest[]
 }>()
 
 defineEmits<{

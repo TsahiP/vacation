@@ -33,13 +33,10 @@ export interface VacationRequest {
 }
 
 // back to here and check about omitting optional fields
-export interface VacationRequestForm {
-  startDate: string
-  endDate: string
-  reason?: string
-  destination?: string
-}
-
+export type VacationRequestForm = Pick<
+  VacationRequest,
+  'startDate' | 'endDate' | 'reason' | 'destination'
+>;
 export interface StatusUpdateForm {
   status: 'Approved' | 'Rejected'
   comments?: string
