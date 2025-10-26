@@ -32,7 +32,6 @@ export interface VacationRequest {
   User?: User
 }
 
-// back to here and check about omitting optional fields
 export type VacationRequestForm = Pick<
   VacationRequest,
   'startDate' | 'endDate' | 'reason' | 'destination'
