@@ -51,3 +51,10 @@ export interface RequesterView {
   comments?: string
   created_at: string
 }
+
+export interface ARModalProps {
+  modelValue: boolean
+  title?: string
+  content?:string
+  onConfirm?: () => void
+}

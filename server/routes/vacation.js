@@ -15,4 +15,7 @@ router.get('/:id', authMiddleware, vacationController.getRequestById);
 // Update vacation request status (validators only)
 router.put('/:id', authMiddleware, isValidator, vacationController.updateRequestStatus);
 
+// Delete pending vacation request (requester only)
+router.delete('/:id', authMiddleware, vacationController.deleteRequest);
+
 module.exports = router;

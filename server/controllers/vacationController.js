@@ -1,5 +1,5 @@
 const { VacationRequest, User } = require("../models");
-const { Op, where } = require("sequelize");
+const { Op } = require("sequelize");
 
 // Create a new vacation request
 exports.createRequest = async (req, res) => {
@@ -11,7 +11,9 @@ exports.createRequest = async (req, res) => {
     if (isDoubleBooking) {
       return res
         .status(400)
-        .json({ message: "You have an existing pending request for these dates" });
+        .json({
+          message: "You have an existing pending request for these dates",
+        });
     }
     // Validate dates
     const start = new Date(startDate);
@@ -22,7 +24,6 @@ exports.createRequest = async (req, res) => {
         .status(400)
         .json({ message: "End date must be after start date" });
     }
-
 
     const request = await VacationRequest.create({
       userId,
@@ -174,6 +175,22 @@ exports.updateRequestStatus = async (req, res) => {
 
     res.json(request);
   } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// remove pending request
+
+exports.deleteRequest = async (req, res) => {
+  try{
+    // get id from url params
+    const { id } = req.params;
+    // checking existing blefore delete 
+    const request = await VacationRequest.findByPk(id);
+    if (request) await request.destroy();
+    return res.status(200).json({message: "Request deleted successfully"});
+  }catch(error){
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }

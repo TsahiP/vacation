@@ -21,5 +21,10 @@ export const vacationService = {
   async updateRequestStatus(id: number, data: StatusUpdateForm): Promise<VacationRequest> {
     const response = await api.put(`/vacation/${id}`, data)
     return response.data
+  },
+
+  async deleteRequest(id: number): Promise<Boolean> {
+    await api.delete(`/vacation/${id}`);
+    return true;  
   }
 }

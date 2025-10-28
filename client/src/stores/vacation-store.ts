@@ -9,6 +9,39 @@ export const useVacationStore = defineStore('vacation', () => {
   const loading = ref(false)
   const error = ref<string | null>(null)
 
+
+  // delete req if pending
+  // const deleteRequest = async (id: number) => {
+  //   loading.value = true
+  //   error.value = null
+  //   try {
+  //     await vacationService.deleteRequest(id);
+  //     vacationRequests.value = vacationRequests.value.filter(r => r.id !== id);
+  //   } catch (err: any) {
+  //     error.value = err.response?.data?.message || 'Failed to delete vacation request'
+  //   } finally {
+  //     loading.value = false
+  //     console.log('Loading set to false')
+  //   }
+  // }
+const deleteRequest = async (id: number) => {
+  console.log('deleteRequest called')
+  loading.value = true
+  error.value = null
+  try {
+    const result = await vacationService.deleteRequest(id);
+    console.log("🚀 ~ deleteRequest ~ result:", result)
+    if (result) {
+      vacationRequests.value = vacationRequests.value.filter(r => r.id !== id);
+    }
+  } catch (err: any) {
+    error.value = err.response?.data?.message || 'Failed to delete vacation request'
+    console.error('Delete error:', err)
+  } finally {
+    loading.value = false
+    console.log('Loading set to false')
+  }
+}
   const fetchRequests = async (status?: string) => {
     loading.value = true
     error.value = null
@@ -53,18 +86,18 @@ export const useVacationStore = defineStore('vacation', () => {
     error.value = null
     try {
       const updatedRequest = await vacationService.updateRequestStatus(id, data)
-      
+
       // Update in the list
       const index = vacationRequests.value.findIndex(r => r.id === id)
       if (index !== -1) {
         vacationRequests.value[index] = updatedRequest
       }
-      
+
       // Update current request if being viewed
       if (currentRequest.value && currentRequest.value.id === id) {
         currentRequest.value = updatedRequest
       }
-      
+
       return updatedRequest
     } catch (err: any) {
       error.value = err.response?.data?.message || 'Failed to update request status'
@@ -82,6 +115,7 @@ export const useVacationStore = defineStore('vacation', () => {
     fetchRequests,
     fetchRequestById,
     createRequest,
+    deleteRequest,
     updateRequestStatus
   }
 })
